@@ -1,18 +1,18 @@
 <?php
-    require("config/conexion.php");
+    require "config/conexion.php";
     class Login{
         private $_db;
         public function __construct() {
-            $this->_db = new Conexion();
+            $this->$_db = new Conexion();
         }
 
         public function login($usuario, $contraseña){
-            $this->_db->conectar();
-            $consulta = $this->_db->conexion->prepare("SELECT * FROM login WHERE usuario='".$usuario."' AND PASSWORD = '".$contraseña."'");
+            $this->$_db->conectar();
+            $consulta = $this->$_db->conexion->prepare("SELECT *FROM login WHERE usuario='".$usuario."' AND contraseña = '".$contraseña."'");
             $consulta->execute();
-            $this->_db->desconectar();
+            $this->$_db->desconectar();
 
-            if($consulta->fetch(PDO::FETCH_OBJ)){
+            if($consulta->fetch(PDO::FECTH_OBJ)){
                 return true;
             }else{
                 return false;

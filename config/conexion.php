@@ -3,20 +3,20 @@
         public $conexion;
         public function conectar(){
             try{
-                $instanciadb="mysql:host=localhost;dbname=".DB_NAME;
-                $opciones = array(
-                    PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-                );
-                $this->conexion = new PDO($instanciadb, DB_USER, DB_PASSWORD);
-                echo "Conexion correcta!";
-                return $this->conexion;
+                $dsn="mysql:locallhost; dbname=".DB_NAME."; charset=utf8";
+                $opciones = [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                ];
+                $this->$conexion = new PDO($dsn, DB_USER, DB_PASSWORD, $opciones);
+                return$this->$conexion;
             }catch(PDOException $e){
-                echo $e->getMessage();
+                die("Error de conexion a la Base de Datos.".$e->getMessage());
             }
         }
 
         public function desconectar(){
-            $this->conexion = null; 
+            $this->$conexion = null;
         }
     }
 ?>

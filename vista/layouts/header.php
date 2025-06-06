@@ -6,3 +6,4 @@
     <link rel="stylesheet" href="<?php echo urlsite ?>public/css/bootstrap.min.css">
     <title>MI TIENDA</title>
 </head>
+<body> <!-- Añade esta línea -->
