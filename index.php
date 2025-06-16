@@ -13,7 +13,8 @@
             require "controlador/LoginController.php";
             LoginController::auth();
             break;
-        case 'admin': echo "Iniciaste Sesion. Felicitaciones"; break;
+        case 'admin': 
+            echo "Iniciaste Sesion. Felicitaciones"; break;
         default:
             echo "<a href='".urlsite."?page=login'>INICIAR SESION.</a>";
             break;
